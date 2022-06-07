@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captura de informações digitadas</title>
+</head>
+<body>
+    <h2>Digite alguma tecla do teclado!</h2>
+
+    <!-- Referência -->
+    <!-- https://www.devmedia.com.br/javascript-obtendo-tecla-pressionada/16486 -->
+</body>
+
+<script defer>
+    let texto = "";
+
+    function exibeTecla(event) {
+        console.clear();
+        texto += event.key;
+        console.log(texto);
+    }
+
+    document.body.onkeypress = exibeTecla;
+
+</script>
+</html>
