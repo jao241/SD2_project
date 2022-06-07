@@ -14,15 +14,34 @@
 </body>
 
 <script defer>
-    let texto = "";
+const endereco = "ws://localhost:9999";
+let socket = geraSocket(endereco);
 
-    function exibeTecla(event) {
-        console.clear();
-        texto += event.key;
-        console.log(texto);
-    }
+function enviaTeclaDigitada(event) {
+    console.log(socket.readyState)
 
-    document.body.onkeypress = exibeTecla;
+    const temConexao = validaEstadoConexao(socket);
 
+    if(temConexao)
+        socket.send(event.key);
+    else
+        {
+            alert("Falha ao tentar se conectar ao socket!");
+            socket = geraSocket(endereco);
+        }
+}
+
+function geraSocket(endereco) {
+    const socket = new WebSocket(endereco);
+    return socket;
+}
+
+function validaEstadoConexao(socket) {
+    const estadoDaConexao = socket.readyState;
+    if(estadoDaConexao == 1) return true;
+    if(estadoDaConexao == 2 || estadoDaConexao == 3) return false;
+}
+
+document.body.onkeypress = enviaTeclaDigitada;
 </script>
 </html>
