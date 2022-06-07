@@ -4,6 +4,8 @@ const server = new WebSocketServer({
     port: 9999
 });
 
+let texto = "";
+
 server.on("listening", () => {
     console.log("Servidor rodando...");
 });
@@ -12,7 +14,8 @@ server.on("connection", (ws) => {
     
     ws.addEventListener("message", (message) => {
         console.clear();
-        console.log(message);
+        texto += message.data;
+        console.log(texto);
     });
 
 });
