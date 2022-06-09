@@ -7,7 +7,8 @@
     <title>Captura de informações digitadas</title>
 </head>
 <body>
-    <h2>Digite alguma tecla do teclado!</h2>
+    <h2>Digite algo!</h2>
+    <input type="text">
 
     <!-- Referência -->
     <!-- https://www.devmedia.com.br/javascript-obtendo-tecla-pressionada/16486 -->
@@ -18,8 +19,6 @@ const endereco = "ws://localhost:9999";
 let socket = geraSocket(endereco);
 
 function enviaTeclaDigitada(event) {
-    console.log(socket.readyState)
-
     const temConexao = validaEstadoConexao(socket);
 
     if(temConexao)
@@ -42,6 +41,6 @@ function validaEstadoConexao(socket) {
     if(estadoDaConexao == 2 || estadoDaConexao == 3) return false;
 }
 
-document.body.onkeypress = enviaTeclaDigitada;
+document.body.onkeydown = enviaTeclaDigitada;
 </script>
 </html>
