@@ -1,17 +1,20 @@
 {
   "name": "sd2_project",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "Script que simula captura de dados de uma tela cliente de uma máquina e imprime numa aplicação presente em outra máquina.",
+  "main": "src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "start": "node src/server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Douglas, João Vitor",
   "license": "ISC",
   "dependencies": {
-    "nodemon": "^2.0.16",
     "ws": "^8.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
   }
 }
